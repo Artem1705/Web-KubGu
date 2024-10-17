@@ -111,6 +111,46 @@
             </tbody>
         </table>
     </div>
+    <div class="content">
+        <form id="myForm" action="/" method="POST" onsubmit="return validateForm()">
+            <label>
+                Однострочное текстовое поле:<br />
+                <input name="fieldname1" id="fieldname1" required />
+            </label><br />
+            <div id="errorFieldname1" class="error-message"></div>
+
+            <label>
+                Текстовое поле email:<br />
+                <input name="fieldemail" id="fieldemail" type="email" placeholder="Введите почту" required />
+            </label><br />
+            <div id="errorFieldemail" class="error-message"></div>
+
+            <label>
+                Текстовое поле даты:<br />
+                <input name="fielddate" id="fielddate" value="2024-09-18" type="date" required />
+            </label><br />
+            <div id="errorFielddate" class="error-message"></div>
+
+            <label>
+                Многострочное текстовое поле:<br />
+                <textarea name="fieldname2" id="fieldname2" required>начальное значение</textarea>
+            </label><br />
+            <div id="errorFieldname2" class="error-message"></div>
+
+            <label>
+                Список combobox:<br />
+                <select name="fieldname3" id="fieldname3" required>
+                    <option value="">Выберите значение</option>
+                    <option value="Значение1">Метка1</option>
+                    <option value="Значение2">Метка2</option>
+                    <option value="Значение3">Метка3</option>
+                </select>
+            </label><br />
+            <div id="errorFieldname3" class="error-message"></div>
+
+            <input type="submit" value="Отправить" />
+        </form>
+    </div>
 
     <script>
         function validateForm() {
