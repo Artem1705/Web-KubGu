@@ -112,14 +112,73 @@
         </table>
     </div>
 
-    <div class="content">
-        <form id="myForm" action="/" method="POST" onsubmit="return validateForm()">
-            <label>
-                Однострочное текстовое поле:<br />
-                <input name="fieldname1" id="fieldname1" required />
-            </label><br />
-            <div id="errorFieldname1" class="error-message"></div>
+    <script>
+        function validateForm() {
+            // Сбрасываем предыдущие сообщения об ошибках
+            document.getElementById("errorFieldname1").innerText = "";
+            document.getElementById("errorFieldemail").innerText = "";
+            document.getElementById("errorFielddate").innerText = "";
+            document.getElementById("errorFieldname2").innerText = "";
+            document.getElementById("errorFieldname3").innerText = "";
 
-            <label>
-                Текстовое поле email:<br />
-                <input name="fieldemail" id="fieldemail" type="email" placeholder="Введите почту" required />
+            let isValid = true;
+
+            // Проверка поля "Однострочное текстовое поле"
+            const fieldname1 = document.getElementById("fieldname1").value;
+            if (fieldname1.trim() === "") {
+                document.getElementById("errorFieldname1").innerText = "Это поле обязательно для заполнения.";
+                isValid = false;
+            }
+
+            // Проверка поля "email"
+            const email = document.getElementById("fieldemail").value;
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(emailPattern)) {
+                document.getElementById("errorFieldemail").innerText = "Введите корректный адрес электронной почты.";
+                isValid = false;
+            }
+
+            // Проверка поля "даты"
+            const fielddate = document.getElementById("fielddate").value;
+            if (fielddate.trim() === "") {
+                document.getElementById("errorFielddate").innerText = "Это поле обязательно для заполнения.";
+                isValid = false;
+            }
+
+            // Проверка многострочного текстового поля
+            const fieldname2 = document.getElementById("fieldname2").value;
+            if (fieldname2.trim() === "") {
+                document.getElementById("errorFieldname2").innerText = "Это поле обязательно для заполнения.";
+                isValid = false;
+            }
+
+            // Проверка поля combobox
+            const fieldname3 = document.getElementById("fieldname3").value;
+            if (fieldname3 === "") {
+                document.getElementById("errorFieldname3").innerText = "Выберите значение из списка.";
+                isValid = false;
+            }
+
+            return isValid; // Возвращаем true, если все проверки пройдены
+        }
+    </script>
+</body>
+</html>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
